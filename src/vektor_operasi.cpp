@@ -5,8 +5,8 @@ operasi_vektor::operasi_vektor() :
 		// kosong
 }
 
-vertex_3d operasi_vektor::operasi_penjumlahan(vertex_3d u,
-		vertex_3d v) {
+vektor_3d operasi_vektor::operasi_penjumlahan(vektor_3d u,
+		vektor_3d v) {
 
 	hasil_operasi = {
 		u.x + v.x,
@@ -17,8 +17,8 @@ vertex_3d operasi_vektor::operasi_penjumlahan(vertex_3d u,
 	return hasil_operasi;
 }
 
-vertex_3d operasi_vektor::operasi_pengurangan(vertex_3d u, 
-		vertex_3d v) {
+vektor_3d operasi_vektor::operasi_pengurangan(vektor_3d u, 
+		vektor_3d v) {
 	
 	hasil_operasi = {
 		u.x + v.x,
@@ -30,7 +30,7 @@ vertex_3d operasi_vektor::operasi_pengurangan(vertex_3d u,
 }
 
 
-vertex_3d operasi_vektor::operasi_skalar(vertex_3d u,
+vektor_3d operasi_vektor::operasi_skalar(vektor_3d u,
 		float skalar) {
 	
 	hasil_operasi {
