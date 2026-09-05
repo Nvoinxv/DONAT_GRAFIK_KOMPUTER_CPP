@@ -2,10 +2,13 @@
 
 Donat_Geometris::Donat_Geometris() : R(0.0f), r(0.0f),
 rotasi_matrix(), PI(3.141592653589793f), vertices(),
-segment_u(), segment_v() {
+segment_u(), segment_v(), sudut(0.0f) {
     // Kosong
 }
 
+float Donat_Geometris::perhitungan_sudut(double sudut) {
+    return sudut * PI / 180.0f;
+}
 vertex_donat_geometris Donat_Geometris::torus_x (
     float R,
     float r,
@@ -82,4 +85,25 @@ void Donat_Geometris::penggabungan_torus(
     vertices.push_back({bagian_x, bagian_y, bagian_Z});
 
     return vertices;
+}
+
+vector_3d Donat_Geometris::operasi_aljabar_linear_ke_geometris(
+    matrix_3d m, vektor_3d v
+) {
+    return {
+        m.data[0][0] * v.x + m.data[0][1] * v.y + m.data[0][2] * v.z,
+        m.data[1][0] * v.x + m.data[1][1] * v.y + m.data[1][2] * v.z,
+        m.data[2][0] * v.x + m.data[2][1] * v.y + m.data[2][2] * v.z
+    };
+    
+}
+
+
+void Donat_Geometris::rotasi(float sudut) {
+    float sudut_radian = perhitungan_sudut(sudut);
+    matrix_3d R = rotasi_matrix.rotasi_y(sudut_radian);
+
+    for (auto& vertex : penggabungan_torus) {
+        vertex = operasi_aljabar_linear_ke_geometris(R, vertex);
+    }
 }
