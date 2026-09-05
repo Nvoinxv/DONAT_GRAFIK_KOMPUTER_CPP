@@ -1,0 +1,44 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers and Debugging files
+*.gch
+*.pch
+*.ilk
+*.pdb
+*.dwo
+
+# Libraries and Static Archives
+*.so
+*.dylib
+*.dll
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables (The actual apps your code builds)
+*.exe
+*.out
+*.app
+
+# Build directories (Where CMake or Make sends files)
+[Bb]uild/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+targets/
+
+# IDE and Editor files (Optional but highly recommended)
+.vscode/
+.idea/
+*.suo
+*.user
+
