@@ -1,7 +1,7 @@
 #include "render_ascii.hpp"
 
 render_ascii_objek::render_ascii_objek() :
-skala(10.0f),
+skala(1.0f),
 a(),
 b(),
 titik(),

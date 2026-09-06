@@ -10,7 +10,12 @@ Donat_Geometris::Donat_Geometris()
       segment_v(15),
       sudut(0.0f)
 {
-    // Kosong
+    penggabungan_torus(
+        R,
+        r,
+        segment_u,
+        segment_v
+    );
 }
 
 
