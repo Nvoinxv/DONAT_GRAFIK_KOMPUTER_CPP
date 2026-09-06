@@ -16,8 +16,8 @@ class Donat_Geometris {
 	float R; // radius lingkaran besar
 	float r; // radius tabung donat
 
-	vertex_donat_geometris segment_u;
-	vertex_donat_geometris segment_v;
+	int segment_u;
+	int segment_v;
 
 	float sudut;
 
@@ -40,21 +40,21 @@ class Donat_Geometris {
 
 	vertex_donat_geometris torus_y (
 		float R,
-		float r
+		float r,
 		vertex_donat_geometris segment_u,
 		vertex_donat_geometris segment_v
 	);
 
 	vertex_donat_geometris torus_z (
 		float R,
-		float r
+		float r,
 		vertex_donat_geometris segment_u,
 		vertex_donat_geometris segment_v
 	);
     
 	void penggabungan_torus (
 		float R,
-		float r
+		float r,
 		vertex_donat_geometris segment_u,
 		vertex_donat_geometris segment_v
 	);

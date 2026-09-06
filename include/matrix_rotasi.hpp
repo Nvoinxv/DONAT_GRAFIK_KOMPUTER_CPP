@@ -9,10 +9,10 @@ struct matrix_3d {
 
 class operasi_rotasi_matrix {
 	private:
-       float theta;
-	float hasil_perhitungan;
+    float theta;
+	matrix_3d hasil_perhitungan;
 
-        public:
+    public:
 	operasi_rotasi_matrix();
 
 	matrix_3d rotasi_matrix_x(float theta);

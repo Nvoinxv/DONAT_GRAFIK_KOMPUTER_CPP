@@ -4,13 +4,13 @@
 #include <thread>
 
 int main() {
-    render_ascii render;
+    render_ascii_objek render;
     Donat_Geometris donat;
 
     while (true) {
         std::cout << "\033[2J\033[H"; 
         donat.rotasi(2);
         render.layar(donat);
-        std::this_thread::sleep_for(std::chrono::miliseconds(5));
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
     }
 }
