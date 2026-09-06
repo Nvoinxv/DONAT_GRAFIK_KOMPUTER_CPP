@@ -19,6 +19,8 @@ class Donat_Geometris {
 	vertex_donat_geometris segment_u;
 	vertex_donat_geometris segment_v;
 
+	float sudut;
+
 	operasi_rotasi_matrix rotasi_matrix;
 	float PI = 3.141592653589793f;
 
@@ -27,6 +29,8 @@ class Donat_Geometris {
 	public:
 	Donat_Geometris();
 	
+	float perhitungan_sudut(float sudut);
+
 	vertex_donat_geometris torus_x(
 		float R,
 		float r,
@@ -59,7 +63,8 @@ class Donat_Geometris {
 		matrix_3d m, vektor_3d v
 	);
 
-
+    void rotasi(double sudut);
+	
 };
 
 #endif
