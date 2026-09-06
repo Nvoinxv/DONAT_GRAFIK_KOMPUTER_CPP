@@ -1,13 +1,13 @@
 #include "membuat_geometris_donat.hpp"
 
 Donat_Geometris::Donat_Geometris()
-    : R(0.0f),
-      r(0.0f),
+    : R(10.0f),
+      r(3.0f),
       rotasi_matrix(),
       PI(3.141592653589793f),
       vertices(),
-      segment_u(0),
-      segment_v(0),
+      segment_u(30),
+      segment_v(15),
       sudut(0.0f)
 {
     // Kosong
