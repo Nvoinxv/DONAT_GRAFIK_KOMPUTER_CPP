@@ -88,7 +88,7 @@ void Donat_Geometris::penggabungan_torus(
 }
 
 
-vector_3d Donat_Geometris::operasi_aljabar_linear_ke_geometris(
+vektor_3d Donat_Geometris::operasi_aljabar_linear_ke_geometris(
     matrix_3d m,
     vektor_3d v
 ) {

@@ -3,12 +3,12 @@
 
 #include <cmath>
 #include <vector>
-#include "matrix_operasi.hpp"
+#include "matrix_rotasi.hpp"
 #include "vektor_operasi.hpp"
 
 struct vertex_donat_geometris {
-	float u,
-	float v
+	float u;
+	float v;
 };
 
 class Donat_Geometris {
@@ -24,7 +24,7 @@ class Donat_Geometris {
 	operasi_rotasi_matrix rotasi_matrix;
 	float PI = 3.141592653589793f;
 
-	std::vector<vector_3d> vertices;
+	std::vector<vektor_3d> vertices;
 
 	public:
 	Donat_Geometris();
@@ -59,13 +59,13 @@ class Donat_Geometris {
 		vertex_donat_geometris segment_v
 	);
 
-	vector_3d operasi_aljabar_linear_ke_geometris(
+	vektor_3d operasi_aljabar_linear_ke_geometris(
 		matrix_3d m, vektor_3d v
 	);
 
     void rotasi(double sudut);
 	
-	const std::vector<vector_3d>& mendapatkan_vertices() const {
+	const std::vector<vektor_3d>& mendapatkan_vertices() const {
         return vertices;
     }
 

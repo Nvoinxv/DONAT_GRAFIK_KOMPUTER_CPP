@@ -16,8 +16,8 @@ tinggi(0)
 }
 
 
-vector_3d render_ascii_objek::projeksi_ortografi(
-    vector_3d a,
+vektor_3d render_ascii_objek::projeksi_ortografi(
+    vektor_3d a,
     float skala
 ) {
     float layar_x =
@@ -37,12 +37,12 @@ vector_3d render_ascii_objek::projeksi_ortografi(
 }
 
 
-std::vector<vector_3d>
+std::vector<vektor_3d>
 render_ascii_objek::digital_differential_analyzer(
-    vector_3d a,
-    vector_3d b
+    vektor_3d a,
+    vektor_3d b
 ) {
-    std::vector<vector_3d> titik_garis;
+    std::vector<vektor_3d> titik_garis;
 
     delta_x = b.x - a.x;
     delta_y = b.y - a.y;
@@ -88,7 +88,7 @@ render_ascii_objek::digital_differential_analyzer(
 
 
 float render_ascii_objek::kedalaman_titik(
-    vector_3d titik
+    vektor_3d titik
 ) {
     return titik.z;
 }
@@ -123,7 +123,7 @@ char render_ascii_objek::karakter_kedalaman(
 
 void render_ascii_objek::gambar_titik(
     std::vector<std::vector<char>>& layar,
-    vector_3d titik,
+    vektor_3d titik,
     int panjang,
     int tinggi
 ) {
@@ -151,12 +151,12 @@ void render_ascii_objek::gambar_titik(
 
 void render_ascii_objek::gambar_garis(
     std::vector<std::vector<char>>& layar,
-    vector_3d a,
-    vector_3d b,
+    vektor_3d a,
+    vektor_3d b,
     int panjang,
     int tinggi
 ) {
-    std::vector<vector_3d> titik_garis =
+    std::vector<vektor_3d> titik_garis =
         digital_differential_analyzer(
             a,
             b
@@ -210,19 +210,19 @@ void render_ascii_objek::layar(
                 ((i + 1) % segment_u) *
                 segment_v + j;
 
-            vector_3d a =
+            vektor_3d a =
                 projeksi_ortografi(
                     vertices[titik_sekarang],
                     skala
                 );
 
-            vector_3d b =
+            vektor_3d b =
                 projeksi_ortografi(
                     vertices[titik_v],
                     skala
                 );
 
-            vector_3d c =
+            vektor_3d c =
                 projeksi_ortografi(
                     vertices[titik_u],
                     skala

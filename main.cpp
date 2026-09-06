@@ -1,5 +1,5 @@
 #include "include/render_ascii.hpp"
-#include "include/membuat_geomteris_donat.hpp"
+#include "include/membuat_geometris_donat.hpp"
 #include <chrono>
 #include <thread>
 

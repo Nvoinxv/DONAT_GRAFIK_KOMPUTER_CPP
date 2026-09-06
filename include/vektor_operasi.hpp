@@ -6,15 +6,15 @@
 #include <cmath>
 
 struct vektor_3d {
-	float x,
-	float y,
-	float z
+	float x;
+	float y;
+	float z;
 };
 
-class operasi_vektor() {
+class operasi_vektor {
 	private:
 	float hasil_operasi;
-        float skalar;
+    float skalar;
 
 	public:
 	operasi_vektor();
