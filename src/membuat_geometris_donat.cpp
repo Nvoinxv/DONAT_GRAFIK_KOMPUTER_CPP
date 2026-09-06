@@ -8,7 +8,8 @@ Donat_Geometris::Donat_Geometris()
       vertices(),
       segment_u(0),
       segment_v(0),
-      sudut(0.0f) {
+      sudut(0.0f)
+{
     // Kosong
 }
 
@@ -18,13 +19,13 @@ float Donat_Geometris::perhitungan_sudut(float sudut) {
 }
 
 
-vector_3d Donat_Geometris::torus_vertex(
+vektor_3d Donat_Geometris::torus_vertex(
     float R,
     float r,
     float u,
     float v
 ) {
-    vector_3d vertex;
+    vektor_3d vertex;
 
     vertex.x =
         (R + r * std::cos(v)) *
@@ -74,7 +75,7 @@ void Donat_Geometris::penggabungan_torus(
             float v =
                 2.0f * PI * j / segment_v;
 
-            vector_3d vertex =
+            vektor_3d vertex =
                 torus_vertex(
                     R,
                     r,
@@ -113,7 +114,7 @@ void Donat_Geometris::rotasi(float sudut) {
         perhitungan_sudut(sudut);
 
     matrix_3d R =
-        rotasi_matrix.rotasi_y(
+        rotasi_matrix.rotasi_matrix_y(
             sudut_radian
         );
 

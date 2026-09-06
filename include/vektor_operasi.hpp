@@ -6,29 +6,34 @@
 #include <cmath>
 
 struct vektor_3d {
-	float x;
-	float y;
-	float z;
+    float x;
+    float y;
+    float z;
 };
 
 class operasi_vektor {
-	private:
-	float hasil_operasi;
+    private:
+    vektor_3d hasil_operasi;
+    float hasil_skalar;
     float skalar;
 
-	public:
-	operasi_vektor();
+    public:
+    operasi_vektor();
 
-	vektor_3d operasi_penjumlahan(vektor_3d u, 
-			vektor_3d v);
+    vektor_3d operasi_penjumlahan(
+        vektor_3d u,
+        vektor_3d v
+    );
 
-	vektor_3d operasi_pengurangan(vektor_3d u,
-			vektor_3d v);
+    vektor_3d operasi_pengurangan(
+        vektor_3d u,
+        vektor_3d v
+    );
 
-	vektor_3d operasi_skalar(vektor_3d u,
-	    float skalar);
+    vektor_3d operasi_skalar(
+        vektor_3d u,
+        float skalar
+    );
 };
 
 #endif
-
-
