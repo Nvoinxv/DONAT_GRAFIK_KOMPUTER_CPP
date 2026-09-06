@@ -51,7 +51,12 @@ class render_ascii_objek {
         int lebar
     );
 
-
+    void layar(
+        Donat_Geometris& objek,
+        const int panjang = 80,
+        const int tinggi = 40,
+        std::vector<std::vector<char>> layar
+    )
 };
 
 #endif

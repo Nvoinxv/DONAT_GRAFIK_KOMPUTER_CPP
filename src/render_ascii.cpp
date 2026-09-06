@@ -86,4 +86,14 @@ void render_ascii::gambar_garis (
     }
 }
 
-void layar()
+void render_ascii::layar(
+    Donat_Geometris& objek,
+    const int panjang = 80,
+    const int tinggi = 40,
+    std::vector<char>(panjang,
+    ' ')
+) {
+    for (auto& sisi : objek.penggabungan_torus) {
+        vector_3d a = objek.
+    }
+}

@@ -18,80 +18,37 @@ float Donat_Geometris::perhitungan_sudut(float sudut) {
 }
 
 
-vertex_donat_geometris Donat_Geometris::torus_x(
+vector_3d Donat_Geometris::torus_vertex(
     float R,
     float r,
-    int segment_u,
-    int segment_v
+    float u,
+    float v
 ) {
-    vertex_donat_geometris vertex;
+    vector_3d vertex;
 
-    for (int i = 0; i < segment_u; i++) {
-        float u = 2.0f * PI * i / segment_u;
+    vertex.x =
+        (R + r * std::cos(v)) *
+        std::cos(u);
 
-        for (int j = 0; j < segment_v; j++) {
-            float v = 2.0f * PI * j / segment_v;
+    vertex.y =
+        (R + r * std::cos(v)) *
+        std::sin(u);
 
-            vertex.x =
-                (R + r * std::cos(v)) *
-                std::cos(u);
-
-            int titik_u = (i + 1) % segment_u;
-            int titik_v = (j + 1) % segment_v;
-        }
-    }
+    vertex.z =
+        r * std::sin(v);
 
     return vertex;
 }
 
 
-vertex_donat_geometris Donat_Geometris::torus_y(
-    float R,
-    float r,
-    int segment_u,
-    int segment_v
+int Donat_Geometris::indeks_vertex(
+    int u,
+    int v
 ) {
-    vertex_donat_geometris vertex;
+    u = u % segment_u;
+    v = v % segment_v;
 
-    for (int i = 0; i < segment_u; i++) {
-        float u = 2.0f * PI * i / segment_u;
-
-        for (int j = 0; j < segment_v; j++) {
-            float v = 2.0f * PI * j / segment_v;
-
-            vertex.y =
-                (R + r * std::cos(v)) *
-                std::sin(u);
-
-            int titik_u = (i + 1) % segment_u;
-            int titik_v = (j + 1) % segment_v;
-        }
-    }
-
-    return vertex;
-}
-
-
-vertex_donat_geometris Donat_Geometris::torus_z(
-    float r,
-    int segment_u,
-    int segment_v
-) {
-    vertex_donat_geometris vertex;
-
-    for (int i = 0; i < segment_u; i++) {
-        for (int j = 0; j < segment_v; j++) {
-            float v = 2.0f * PI * j / segment_v;
-
-            vertex.z =
-                r * std::sin(v);
-
-            int titik_u = (i + 1) % segment_u;
-            int titik_v = (j + 1) % segment_v;
-        }
-    }
-
-    return vertex;
+    return u * segment_v + v;
 }
 
 
@@ -101,34 +58,33 @@ void Donat_Geometris::penggabungan_torus(
     int segment_u,
     int segment_v
 ) {
-    vertex_donat_geometris bagian_x =
-        torus_x(
-            R,
-            r,
-            segment_u,
-            segment_v
-        );
+    this->R = R;
+    this->r = r;
 
-    vertex_donat_geometris bagian_y =
-        torus_y(
-            R,
-            r,
-            segment_u,
-            segment_v
-        );
+    this->segment_u = segment_u;
+    this->segment_v = segment_v;
 
-    vertex_donat_geometris bagian_z =
-        torus_z(
-            r,
-            segment_u,
-            segment_v
-        );
+    vertices.clear();
 
-    vertices.push_back({
-        bagian_x.x,
-        bagian_y.y,
-        bagian_z.z
-    });
+    for (int i = 0; i < segment_u; i++) {
+        float u =
+            2.0f * PI * i / segment_u;
+
+        for (int j = 0; j < segment_v; j++) {
+            float v =
+                2.0f * PI * j / segment_v;
+
+            vector_3d vertex =
+                torus_vertex(
+                    R,
+                    r,
+                    u,
+                    v
+                );
+
+            vertices.push_back(vertex);
+        }
+    }
 }
 
 
@@ -157,7 +113,9 @@ void Donat_Geometris::rotasi(float sudut) {
         perhitungan_sudut(sudut);
 
     matrix_3d R =
-        rotasi_matrix.rotasi_y(sudut_radian);
+        rotasi_matrix.rotasi_y(
+            sudut_radian
+        );
 
     for (auto& vertex : vertices) {
         vertex =

@@ -65,6 +65,17 @@ class Donat_Geometris {
 
     void rotasi(double sudut);
 	
+	const std::vector<vector_3d>& mendapatkan_vertices() const {
+        return vertices;
+    }
+
+    int mendapatkan_segment_u() const {
+        return segment_u;
+    }
+
+    int mendapatkan_segment_v() const {
+        return segment_v;
+    }
 };
 
 #endif
